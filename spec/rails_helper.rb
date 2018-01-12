@@ -9,7 +9,6 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'capybara/rspec'
 
-config.include FactoryBot::Syntax::Methods
 Capybara.server = :puma 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -60,4 +59,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryBot::Syntax::Methods
 end
