@@ -1,0 +1,20 @@
+<li class="grid-tile">
+	<%= form_for order_item, {controller: 'order_items', action: 'create', remote: true } do |f| %>
+		<div class="item">
+			<div class="item-img" style="background-image: url('https://www.momastore.org/wcsstore/MOMASTORE1/images/products/96511_A2_Print_NYC_8x10_In.jpg'); background-size: auto auto; background-size: 150%; background-position: center 30%;"></div>
+			<div class="item-pnl">
+				<div class="pnl-wrapper">
+					<div class="pnl-description">
+						<span class="pnl-label"><%= item.name %></span>
+						<span class="pnl-price"><%= item.price %></span>
+						<%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+						<%= f.hidden_field :item_id, value: item.id %>
+					</div>
+					<div>
+						<%= button_to "Add to cart", '#', {class: "btn btn-danger btn-cart"} %>	
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</li>

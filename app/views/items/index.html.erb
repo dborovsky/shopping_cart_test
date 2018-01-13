@@ -1,0 +1,11 @@
+<h1>Product`s list</h1>
+
+<div class="layout">
+	<section class="inner">
+		<ul class="grid list-items">
+			<% @items.each do |item| %>
+				<%= render "item_line", item: item, order_item: @order_item %>
+			<% end %>	
+		</ul>
+	</section>
+</div>

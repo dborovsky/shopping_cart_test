@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 	private
 
 	def update_total
-		self(:total) = total
+		self[:total] = total
 	end
 
 end
