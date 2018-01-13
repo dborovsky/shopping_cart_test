@@ -3,7 +3,9 @@ class OrderItem < ApplicationRecord
   belongs_to :order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-    
+  
+  before_save :update_total_price  
+
   def total_price
   	item.price * quantity
   end
@@ -22,8 +24,7 @@ class OrderItem < ApplicationRecord
     end
   end
 
-  def finialize
+  def update_total_price
   	self[:total_price] = total_price
   end
-
 end
