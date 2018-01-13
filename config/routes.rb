@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'pages#index'
+  get 'carts/show'
 
-  post "/order_items", to: "order_items#create"  
+  root to: 'pages#index'
+  resources :order, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
 end
