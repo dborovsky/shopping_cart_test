@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'carts/show'
+  get 'carts/show', to: 'carts#show', as: 'cart'
 
   root to: 'items#index'
   resources :order, only: [:show]

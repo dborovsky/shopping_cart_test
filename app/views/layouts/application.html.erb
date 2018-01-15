@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="layout">
+    	<div class="col-xs-12 text-right">
+        <div class="cart-text"><%= render 'layouts/cart_text' %></div>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>
