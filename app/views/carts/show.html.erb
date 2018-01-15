@@ -1,2 +1,49 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @order_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+  </p>
+<% else %>
+
+<div class="row">
+  <div class="col-sm-12 col-md-10 col-md-offset-1">
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th class="text-center">Price</th>
+                  <th class="text-center">Total</th>
+                  <th> </th>
+              </tr>
+          </thead>
+          <tbody>
+            <% @order_items.each do |order_item| %> 
+              <%= render 'carts/cart_row', product: order_item.item, order_item: order_item %>
+            <% end %>
+              <tr>
+                <td>   </td>
+                <td>   </td>
+                <td>   </td>
+                <td class="col-sm-1 col-md-1 text-center"><strong><%= number_to_currency current_order.total %></strong>
+                </td>
+                <td>
+                <button type="button" class="btn btn-success">
+                  Checkout <span class="glyphicon glyphicon-play"></span>
+                </button></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<% end %>
