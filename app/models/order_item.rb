@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
   before_save :update_total_price  
 
   def total_price
-  	item.price * quantity
+    item.price * quantity
   end
 
   private
@@ -25,6 +25,6 @@ class OrderItem < ApplicationRecord
   end
 
   def update_total_price
-  	self[:total_price] = total_price
+    self[:total_price] = item.price * quantity
   end
 end
