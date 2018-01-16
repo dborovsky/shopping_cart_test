@@ -9,9 +9,9 @@
 						<span class="pnl-price"><%= item.price %></span>
 						<%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
 						<%= f.hidden_field :item_id, value: item.id %>
-					</div>
+					</div>			
 					<div>
-						<%= button_to "Add to cart", '#', {class: "btn btn-danger btn-cart"} %>	
+						<%= button_to "Add to cart", "#", { class: "btn btn-danger" } %>	
 					</div>
 				</div>
 			</div>
